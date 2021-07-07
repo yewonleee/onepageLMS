@@ -15,7 +15,7 @@
 		checkbox: <input type="checkbox" name="active" value="${u.active}"/>
 
 		<div class="content">
-			<textarea name="classContents">${u.classContent}</textarea>
+			<textarea name="classContent">${u.classContent}</textarea>
 		</div>
 		
 
