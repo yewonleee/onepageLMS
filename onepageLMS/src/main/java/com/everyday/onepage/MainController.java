@@ -27,6 +27,12 @@ public class MainController {
 		return "addclass";
 	}
 	
+	@RequestMapping(value = "/classes", method = RequestMethod.GET)
+	public String classes() {
+		
+		return "class";
+	}
+	
 	@RequestMapping(value = "/addclass_action", method = RequestMethod.GET)
 	public String addclass_action(ClassVO vo) {
 		if(classService.addClass(vo) == 0)
@@ -58,4 +64,5 @@ public class MainController {
 			System.out.println("데이터 수정 성공!!!");
 		return "redirect:main";
 	}
+	
 }
