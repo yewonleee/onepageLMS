@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Class">
+
+	<insert id="addClass">
+		insert into lms_class (instructorEmail, className, startDate, active)
+		values
+		(#{instructorEmail}, #{className}, #{startDate}, #{active})
+	</insert>
+	
+	<update id="updateClass">
+		update lms_class
+		set active=#{active}, className=#{className}, classContent=#{classContent}, startDate=#{startDate} 
+		where id=#{id}
+	</update>
+	
+	<select id="getClass" resultType="class">
+		select * from lms_class where
+		id=#{id}
+	</select>
+	
+	<select id="getClassList" resultType="class">
+		select * from lms_class order
+		by id desc
+	</select>
+</mapper>
