@@ -7,7 +7,6 @@
 <title>OnepageLMS</title>
 </head>
 <body>
-	<button type="button" onclick="location.href='addclass' ">마법사로 강의생성</button>
 	
 </body>
 </html>
