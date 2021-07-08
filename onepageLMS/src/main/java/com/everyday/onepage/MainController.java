@@ -56,6 +56,9 @@ public class MainController {
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public String detailClass(@PathVariable("id") int id, Model model) {
 		ClassVO classVO = classService.getClass(id);
+		model.addAttribute("list", classService.getClassList()); //class list 나타내기
+		//playlist 나타내기
+		model.addAttribute("attendance", classService.getAttendanceList());//attendance list 나타내기
 		model.addAttribute("u", classVO);
 		return "detail"; 
 	}
@@ -63,6 +66,9 @@ public class MainController {
 	@RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
 	public String editClass(@PathVariable("id") int id, Model model) {
 		ClassVO classVO = classService.getClass(id);
+		model.addAttribute("list", classService.getClassList()); //class list 나타내기
+		//playlist 나타내기
+		model.addAttribute("attendance", classService.getAttendanceList());//attendance list 나타내기
 		model.addAttribute("u", classVO);
 		return "editclass"; 
 	}
