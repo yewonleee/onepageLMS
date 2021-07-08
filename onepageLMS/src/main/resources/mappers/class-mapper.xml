@@ -21,6 +21,29 @@
 	
 	<select id="getClassList" resultType="class">
 		select * from lms_class order
-		by id desc
+		by id
+	</select>
+	
+	
+	<insert id="addAttendance">
+		insert into lms_attendance (instructorEmail, className, startDate, weeks, days)
+		values
+		(#{instructorEmail}, #{className}, #{startDate}, #{weeks}, #{days})
+	</insert>
+	
+	<update id="updateAttendance">
+		update lms_attendance
+		set className=#{className}, startDate=#{startDate}, weeks=#{weeks}, days=#{days}
+		where attendanceID=#{attendanceID}
+	</update>
+	
+	<select id="getAttendance" resultType="class"> <!-- lms_attendanceCheck table이랑 같이 사용하기!!!!!!!! -->
+		select * from lms_attendance where
+		attendanceID=#{attendanceID}
+	</select>
+	
+	<select id="getAttendanceList" resultType="class">
+		select * from lms_attendance order
+		by attendanceID
 	</select>
 </mapper>

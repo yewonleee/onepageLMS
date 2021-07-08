@@ -31,22 +31,31 @@ public class ClassDAO {
 		return result;
 	}
 	
-	
 	/*
-	public int updateCsee(ClassVO vo) {
-		int result = sqlSession.update("Csee.updateCsee", vo);
-		return result;
-	}
-
 	public int deleteCsee(int seq) {
 		int result = sqlSession.delete("Csee.deleteCsee", seq);
 		return result;
 	}
-
-	public ClassVO getCsee(int seq) {
-		ClassVO result = sqlSession.selectOne("Csee.getCsee", seq);
+	*/
+	
+	public int addAttendance(ClassVO vo) { //출석표 생성 query 실행 
+		int result = sqlSession.insert("Class.addAttendance", vo);
 		return result;
 	}
-	*/
+	
+	public int updateAttendance(ClassVO vo) { //만들어진 attendance 정보 수정할때 
+		int result = sqlSession.update("Class.updateAttendance", vo);
+		return result;
+	}
+	
+	public ClassVO getAttendance(int attendanceID) { //선택한 출석표 가져오기 
+		ClassVO result = sqlSession.selectOne("Class.getAttendance", attendanceID);
+		return result;
+	}
+	
+	public List<ClassVO> getAttendanceList() { //출석표 list 전체 가져오기
+		List<ClassVO> result = sqlSession.selectList("Class.getAttendanceList");
+		return result;
+	}
 
 }
