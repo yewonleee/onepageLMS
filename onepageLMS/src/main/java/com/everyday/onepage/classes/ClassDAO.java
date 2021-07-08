@@ -48,7 +48,7 @@ public class ClassDAO {
 		return result;
 	}
 	
-	public ClassVO getAttendance(int attendanceID) { //선택한 출석표 가져오기 
+	public ClassVO getAttendance(int attendanceID) { //선택한 출석표에 해당하는 출석 정보들 가져오기 
 		ClassVO result = sqlSession.selectOne("Class.getAttendance", attendanceID);
 		return result;
 	}
@@ -57,5 +57,12 @@ public class ClassDAO {
 		List<ClassVO> result = sqlSession.selectList("Class.getAttendanceList");
 		return result;
 	}
+	
+	/*
+	public int deleteAttendance(int attendanceID) {
+		int result = sqlSession.delete("Csee.deleteAttendance", attendanceID);
+		return result;
+	}
+	*/
 
 }

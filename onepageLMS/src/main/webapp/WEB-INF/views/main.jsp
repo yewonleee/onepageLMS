@@ -258,8 +258,13 @@ html, body {
       <div style="padding: 10px; border-bottom: 3px solid black">
         My Classes
         <!-- text can be clicked by using onClick -->
-        <div style="float: right"> + </div>
+        <a style="float: right" href="addclass"> + </a>
       </div>
+      <div class="classlist">
+		<c:forEach items="${list}" var="u">
+			<a href='detail/${u.id}'>${u.className}</a> <br/>
+		</c:forEach>
+	</div>
     </div>
     <div style="font-size: 18px; line-height: 15px; height: 30%; overflow: auto; border-bottom: 3px solid black">
       <div style="padding: 10px; border-bottom: 3px solid black">
@@ -270,8 +275,10 @@ html, body {
     <div style="font-size: 18px; line-height: 15px; height: 40%; overflow: auto; border-bottom: 3px solid black">
       <div style="padding: 10px; border-bottom: 3px solid black">
         Attendance
-        <div style="float: right"> + </div>
       </div>
+      	<c:forEach items="${attendance}" var="v">
+			<a href='attendance/${v.attendanceID}'>${v.className}</a> <br/>
+		</c:forEach>	
     </div>
   </div>
   
@@ -314,30 +321,6 @@ html, body {
   </div>
     
 </div>
-
- 
-
-
-	
-	
-	<div class="classlist">
-		<h2>MyClasses <a href="addclass">+</a></h2> 
-		
-		
-		<c:forEach items="${list}" var="u">
-			<p onclick="location.href='detail/${u.id}'">${u.className}</p> <br/>
-		</c:forEach>
-	</div>
-	
-	<div>
-		<h2>Attendance</h2>
-		<!-- 
-		<c:forEach items="${attendance}" var="v">
-			<a href="attendance_detail/${v.id} }">class 생성</a>
-		</c:forEach>	
-		 -->
-		
-	</div>
 
 </body>
 </html>

@@ -10,7 +10,14 @@ public class ClassVO {
 	private int weeks;
 	private int days;
 	private int folderID; // lms_class attributes 변수 
+	private int attendanceID;
 	
+	public int getAttendanceID() {
+		return attendanceID;
+	}
+	public void setAttendanceID(int attendanceID) {
+		this.attendanceID = attendanceID;
+	}
 	public int getId() {
 		return id;
 	}

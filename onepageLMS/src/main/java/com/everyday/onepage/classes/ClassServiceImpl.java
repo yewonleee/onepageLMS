@@ -30,9 +30,27 @@ public class ClassServiceImpl implements ClassService{
 		return classDAO.getClassList();
 	}
 	
+	//delete class
+	
 	@Override
 	public int addAttendance(ClassVO vo) {
 		return classDAO.addAttendance(vo);
 	}
 	
+	@Override
+	public int updateAttendance(ClassVO vo) {
+		return classDAO.updateAttendance(vo);
+	}
+	
+	@Override
+	public ClassVO getAttendance(int attendanceID) {
+		return classDAO.getAttendance(attendanceID);
+	}
+	
+	@Override
+	public List<ClassVO> getAttendanceList() {
+		return classDAO.getAttendanceList();
+	}
+	
+	//delete Attendance
 }

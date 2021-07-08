@@ -24,26 +24,26 @@
 		by id
 	</select>
 	
-	
-	<insert id="addAttendance">
+	<insert id="addAttendance"> <!-- class 생성시 자동으로 출석부도 생성 -->
 		insert into lms_attendance (instructorEmail, className, startDate, weeks, days)
 		values
 		(#{instructorEmail}, #{className}, #{startDate}, #{weeks}, #{days})
 	</insert>
 	
-	<update id="updateAttendance">
+	<update id="updateAttendance"> <!-- 출석표 기본정보 수정 -->
 		update lms_attendance
 		set className=#{className}, startDate=#{startDate}, weeks=#{weeks}, days=#{days}
 		where attendanceID=#{attendanceID}
 	</update>
 	
-	<select id="getAttendance" resultType="class"> <!-- lms_attendanceCheck table이랑 같이 사용하기!!!!!!!! -->
-		select * from lms_attendance where
-		attendanceID=#{attendanceID}
+	<select id="getAttendance" resultType="class"> <!-- 학생들의 출석정보 가져오기 -->
+		select * from lms_attendance a, lms_attendanceCheck b
+		where a.attendanceID=#{attendanceID} and a.attendanceID = b.attendanceID
 	</select>
 	
-	<select id="getAttendanceList" resultType="class">
+	<select id="getAttendanceList" resultType="class"> <!-- 생성된 출석표들 리스트 -->
 		select * from lms_attendance order
 		by attendanceID
 	</select>
+	
 </mapper>

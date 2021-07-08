@@ -6,6 +6,8 @@
 	<typeAliases>
 		<typeAlias alias="class"
 			type="com.everyday.onepage.classes.ClassVO" />
-		
+			
+		<typeAlias alias="user"
+			type="com.everyday.onepage.users.UserVO" />
 	</typeAliases>
 </configuration>

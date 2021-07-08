@@ -9,17 +9,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.everyday.onepage.classes.ClassService;
 import com.everyday.onepage.classes.ClassVO;
+import com.everyday.onepage.users.UserService;
+import com.everyday.onepage.users.UserVO;
 
 @Controller
 public class MainController {
 	
 	@Autowired
 	ClassService classService;
+	@Autowired
+	UserService userService;
 	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(String t, Model model) {
 		model.addAttribute("list", classService.getClassList()); //class list 나타내기
-		//attendance list 나타내기
+		//playlist 나타내기
+		model.addAttribute("attendance", classService.getAttendanceList());//attendance list 나타내기
 		return "main";
 	}
 	@RequestMapping(value = "/addclass", method = RequestMethod.GET)
@@ -27,7 +32,7 @@ public class MainController {
 		return "addclass"; //마법사로 강의 생성하기 페이지 이동
 	}
 	
-	@RequestMapping(value = "/classes", method = RequestMethod.GET)
+	@RequestMapping(value = "/classes", method = RequestMethod.GET) //연습용!
 	public String classes() {
 		
 		return "class";
@@ -45,18 +50,44 @@ public class MainController {
 		else
 			System.out.println("출석표 추가 성공! "); 
 		
-		return "redirect:main";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-	public String detail(@PathVariable("id") int id, Model model) {
+	public String detailClass(@PathVariable("id") int id, Model model) {
 		ClassVO classVO = classService.getClass(id);
 		model.addAttribute("u", classVO);
 		return "detail"; 
 	}
 	
 	@RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
-	public String editPost(@PathVariable("id") int id, Model model) {
+	public String editClass(@PathVariable("id") int id, Model model) {
+		ClassVO classVO = classService.getClass(id);
+		model.addAttribute("u", classVO);
+		return "editclass"; 
+	}
+	
+	@RequestMapping(value = "/editok", method = RequestMethod.POST)
+	public String editClassOK(ClassVO vo) {
+		if (classService.updateClass(vo) == 0)
+			System.out.println("데이터 수정 실패 ");
+		else
+			System.out.println("데이터 수정 성공!!!");
+		return "redirect:main"; //이전에 사용하던 class 페이지로 다시 넘어가도록 수정하기! 
+	}
+	
+	@RequestMapping(value = "/attendance/{attendanceID}", method = RequestMethod.GET)
+	public String attendance(@PathVariable("attendanceID") int attendanceID, Model model) {
+		ClassVO classVO = classService.getAttendance(attendanceID);
+		
+		model.addAttribute("attendance", classVO);
+		model.addAttribute("students", userService.getClassAttendanceList(classVO)); //각 class별로 수강 학생목록 리스트
+		return "attendance"; 
+	}
+	
+	/*
+	@RequestMapping(value = "/editAttendance/{id}", method = RequestMethod.GET)
+	public String editAttendance(@PathVariable("id") int id, Model model) {
 		ClassVO classVO = classService.getClass(id);
 		model.addAttribute("u", classVO);
 		return "editclass"; 
@@ -70,5 +101,6 @@ public class MainController {
 			System.out.println("데이터 수정 성공!!!");
 		return "redirect:main";
 	}
+	*/
 	
 }
