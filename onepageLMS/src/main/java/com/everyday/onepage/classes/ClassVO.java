@@ -1,7 +1,7 @@
 package com.everyday.onepage.classes;
 
 public class ClassVO {
-	private int id;
+	private int id; //classID
 	private String instructorEmail;
 	private boolean active;
 	private String className;

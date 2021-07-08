@@ -11,7 +11,7 @@ public class UserVO {
 	//private int studentID;
 	//private String studentName;
 	private String className;
-	private String startDate;
+	private int classID;
 	private String pass;	// 'lms_takes' table
 	
 	public int getStudentID() {
@@ -56,11 +56,11 @@ public class UserVO {
 	public void setClassName(String className) {
 		this.className = className;
 	}
-	public String getStartDate() {
-		return startDate;
+	public int getClassID() {
+		return classID;
 	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setClassID(int classID) {
+		this.classID = classID;
 	}
 	public String getPass() {
 		return pass;
