@@ -7,4 +7,6 @@ public interface ClassService {
 	public int updateClass(ClassVO vo);
 	public ClassVO getClass(int id);
 	public List<ClassVO> getClassList();
+	
+	public int addAttendance(ClassVO vo);
 }

@@ -7,7 +7,10 @@ public class ClassVO {
 	private String className;
 	private String classContent;
 	private String startDate;
-	private int folderID;
+	private int weeks;
+	private int days;
+	private int folderID; // lms_class attributes 변수 
+	
 	public int getId() {
 		return id;
 	}
@@ -43,6 +46,18 @@ public class ClassVO {
 	}
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
+	}
+	public int getWeeks() {
+		return weeks;
+	}
+	public void setWeeks(int weeks) {
+		this.weeks = weeks;
+	}
+	public int getDays() {
+		return days;
+	}
+	public void setDays(int days) {
+		this.days = days;
 	}
 	public int getFolderID() {
 		return folderID;

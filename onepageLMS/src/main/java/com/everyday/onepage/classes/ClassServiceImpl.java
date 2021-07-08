@@ -30,4 +30,9 @@ public class ClassServiceImpl implements ClassService{
 		return classDAO.getClassList();
 	}
 	
+	@Override
+	public int addAttendance(ClassVO vo) {
+		return classDAO.addAttendance(vo);
+	}
+	
 }
