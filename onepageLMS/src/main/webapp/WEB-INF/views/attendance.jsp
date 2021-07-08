@@ -23,7 +23,7 @@
 
 	<div class="list">
 		<table id="list" border="1" bordercolor="blue">
-		 	
+
 			<tr>수업 날짜</tr>
 			<tr>
 				<th>화상강의</th>
