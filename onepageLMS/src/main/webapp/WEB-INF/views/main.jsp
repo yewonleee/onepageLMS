@@ -293,7 +293,21 @@ html, body {
 
       ----
       
+		화상 강의 URL      	http://zoom.classURL여기에    
+      공지사항
+      Contents
+          1장
+      1차시 6/20
+      2차시 6/21
+      강의 영상 : http://강의영상PlaylistURL여기에 
+      강의 퀴즈 :  https://forms.gle/강의퀴즈URL여기에
+      과제제출 :  https://drives.gle/과제제출폴더URL여기에
+      학습자료 업로드 방법
+      Google Drive에 자료 파일 업로드 --> 해당 URL 복사 --> 여기에 붙여 넣기!  
+                 
+	 	 	-- 업로드한 파일 미리 보기 자동 생성
 
+      ----
     </pre>
   </div>
     
